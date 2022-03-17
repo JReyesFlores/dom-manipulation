@@ -6,6 +6,13 @@
 const baseUrl = 'https://platzi-avo.vercel.app/';
 const appNode = document.querySelector('#app');
 
+//Agregando eventos por delegación
+appNode.addEventListener('click', (e) => {
+  if (e.target.nodeName === 'H2') {
+    alert('hola');
+  }
+});
+
 //Api de internacionalización
 //1. Formato a fechas
 //2. Formato a monedas
@@ -50,7 +57,10 @@ window
       title.textContent = item.name;
       //title.style = 'font-size: 2rem';
       //title.style.fontSize = '3rem';
-      title.className = 'text-large';
+      /*title.className = 'text-large';
+      title.addEventListener('click', () => {
+        alert('Hola');
+      })*/
 
       //crear precio
       const price = document.createElement('div');
@@ -60,7 +70,7 @@ window
       const container = document.createElement('div');
       container.className = 'mx-auto';
       container.append(imagen, title, price);
-      htmlObjects.push(container); 
+      htmlObjects.push(container);
     });
 
     appNode.append(...htmlObjects);
